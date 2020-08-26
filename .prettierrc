@@ -1,0 +1,6 @@
+{
+  "endOfLine": "crlf",
+  "arrowParens": "always",
+  "singleQuote": true,
+  "tabWidth": 4
+}
