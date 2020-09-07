@@ -128,10 +128,12 @@ table {
     border-spacing: 0;
 }
 /* END */
+html, body, #root {
+    height: 100%;
+}
 
 .main-app {
-    background-color: lemonchiffon;
-    padding: 16px;
+    background-color: lightgray;
     height: 100%;
 }
 
@@ -151,6 +153,28 @@ table {
     justify-content: space-evenly;
 }
 
+.main-nav > p > a {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.form-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.form-wrapper .center-title {
+    margin-bottom: 16px;
+}
+
+.form-wrapper input {
+    display: block;
+    margin-bottom: 16px;
+}
+
 .config-component {
     display: flex;
     align-items: center;
@@ -160,6 +184,11 @@ table {
 .config-component > .config-form {
     background-color: lightgray;
     padding: 16px;
+}
+
+.config-component > .config-form .center-title {
+    text-align: center;
+    padding-bottom: 16px;
 }
 
 .config-component > .config-form button {
@@ -173,4 +202,9 @@ table {
 
 .config-component > .config-form div {
     width: 260px !important;
+    margin-bottom: 8px;
+}
+.MuiFormHelperText-root.Mui-error {
+    position: absolute;
+    top: 30px;
 }

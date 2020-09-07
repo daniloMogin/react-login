@@ -45,22 +45,32 @@ const LoginComponent: FunctionComponent<any> = () => {
                 if (token.status) {
                     return;
                 }
-                login(token);
-                return history.push('/configuration');
+                history.push('/configuration');
+                return login(token);
             });
     };
 
     return (
-        <form onSubmit={onSubmit}>
-            <h1>Login</h1>
-            <input name="email" value={credentials.email} onChange={onChange} />
-            <input
-                name="password"
-                value={credentials.password}
-                onChange={onChange}
-            />
-            <button>Submit</button>
-        </form>
+        <div className="form-wrapper">
+            <form onSubmit={onSubmit}>
+                <h1 className="center-title">Login</h1>
+                <input
+                    type="email"
+                    name="email"
+                    value={credentials.email}
+                    placeholder="Enter email"
+                    onChange={onChange}
+                />
+                <input
+                    type="password"
+                    name="password"
+                    value={credentials.password}
+                    placeholder="Enter password"
+                    onChange={onChange}
+                />
+                <button>Submit</button>
+            </form>
+        </div>
     );
 };
 

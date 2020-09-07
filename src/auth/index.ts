@@ -33,8 +33,6 @@ export const createAuthProvider = <T>({
     });
 
     const login = (newTokens: T) => {
-        console.log(`newTokens`);
-        console.log(newTokens);
         tp.setToken(newTokens);
     };
 
@@ -58,14 +56,11 @@ export const createAuthProvider = <T>({
         if (customFetch) {
             return customFetch(input, init);
         }
-        console.log(` [*-*-*-*-*-*-*-*] init [*-*-*-*-*-*-*-*] `);
-        console.log(init.headers);
         return fetch(input, init);
     };
 
     const useAuth = () => {
         const [isLogged, setIsLogged] = useState(tp.isLoggedIn());
-
         const listener = useCallback(
             (newIsLogged: boolean) => {
                 setIsLogged(newIsLogged);
@@ -120,10 +115,12 @@ const createTokenProvider = <T>({
     };
 
     const subscribe = (listener: (logged: boolean) => void) => {
+        console.log(`subscribe`);
         listeners.push(listener);
     };
 
     const unsubscribe = (listener: (logged: boolean) => void) => {
+        console.log(`unsubscribe`);
         listeners = listeners.filter((l) => l !== listener);
     };
 
@@ -223,6 +220,7 @@ const createTokenProvider = <T>({
     };
 
     const notify = () => {
+        console.log(`notify`);
         const isLogged = isLoggedIn();
         listeners.forEach((l) => l(isLogged));
     };

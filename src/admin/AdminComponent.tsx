@@ -1,12 +1,12 @@
 import React, { FunctionComponent } from 'react';
 import Basic from '../form/basic';
 
-const ConfigurationComponent: FunctionComponent<any> = () => {
+const AdminComponent: FunctionComponent<any> = () => {
     return (
         <div className="config-component">
-            <Basic />
+            <h1>Admin component</h1>
         </div>
     );
 };
 
-export default ConfigurationComponent;
+export default AdminComponent;

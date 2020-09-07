@@ -13,6 +13,7 @@ import LoginComponent from './login/LoginComponent';
 import { createAuthProvider } from './auth/index';
 import ConfigurationComponent from './configuration/ConfigurationComponent';
 import RegisterComponent from './register/RegisterComponent';
+import AdminComponent from './admin/AdminComponent';
 
 export const [useAuth, authFetch, login, logout] = createAuthProvider<{
     accessToken: string;
@@ -33,7 +34,13 @@ interface IProps {
 
 const App = () => {
     const [logged] = useAuth();
+    const history = useHistory();
     console.log(`App`);
+    // console.log(`logged`);
+    // console.log(logged);
+    if (logged) {
+        history.push('/configuration');
+    }
 
     function PrivateRoute({ children, ...rest }: IProps) {
         return (
@@ -63,7 +70,7 @@ const App = () => {
     return (
         <div className="main-app">
             <nav className="main-nav">
-                <p>
+                <p className="nav-link">
                     <Link to="/login">Login</Link>
                 </p>
                 <p>
@@ -73,9 +80,10 @@ const App = () => {
                     <Link to="/configuration">Configuration</Link>
                 </p>
                 <p>
-                    <a href="" onClick={onLogout}>
-                        Logout
-                    </a>
+                    <Link to="/admin">Admin</Link>
+                </p>
+                <p>
+                    <a onClick={onLogout}>Logout</a>
                 </p>
             </nav>
             <Switch>
@@ -87,6 +95,9 @@ const App = () => {
                 </Route>
                 <PrivateRoute path="/configuration">
                     <ConfigurationComponent />
+                </PrivateRoute>
+                <PrivateRoute path="/admin">
+                    <AdminComponent />
                 </PrivateRoute>
             </Switch>
         </div>

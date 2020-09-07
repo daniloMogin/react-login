@@ -12,7 +12,7 @@ const workFlowTask = ['Mapping tables', 'Plugged-in code (JAVA)', 'JavaScript'];
 
 const Basic = () => (
     <div className="config-form">
-        <h1>Enter configuration</h1>
+        <h1 className="center-title">Enter configuration</h1>
         <Formik
             initialValues={{
                 name: '',
@@ -22,8 +22,6 @@ const Basic = () => (
             }}
             validate={(values) => {
                 const errors: any = {};
-                console.log(`AAAAAAAA`);
-
                 if (!values.name) {
                     errors.name = 'Required';
                 }
@@ -52,6 +50,7 @@ const Basic = () => (
                         type="text"
                         name="name"
                         placeholder="Enter name"
+                        className="test"
                     />
 
                     <FormControl className="form-controls">
