@@ -38,6 +38,13 @@ const App = () => {
     console.log(`App`);
     // console.log(`logged`);
     // console.log(logged);
+    localStorage.setItem(
+        `REACT_TOKEN_AUTH_KEY`,
+        JSON.stringify({
+            access_token:
+                'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImVza29AZG9tYWluLmNvbSIsInBhc3N3b3JkIjoidGVzdCIsImlhdCI6MTU5OTA0NzUzNCwiZXhwIjoxNTk5MDUxMTM0fQ.__7ZNn7_F2ceiZu3USZRei1-QqjG6DHtq4Oq30YDSY4',
+        })
+    );
     if (logged) {
         history.push('/configuration');
     }
