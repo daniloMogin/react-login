@@ -17,7 +17,7 @@ export const [useAuth, authFetch, login, logout] = createAuthProvider<{
 const ConfigurationComponent: FunctionComponent<any> = () => {
     let getHelloWorldData = '';
     const getHelloWorld = () => {
-        authFetch('http://localhost:8085/api/hello-world', {
+        authFetch('http://eskobe.local:8085/api/hello-world', {
             method: 'GET',
             headers: {
                 Accept: 'application/json',
