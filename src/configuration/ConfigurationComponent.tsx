@@ -15,9 +15,10 @@ export const [useAuth, authFetch, login, logout] = createAuthProvider<{
 });
 
 const ConfigurationComponent: FunctionComponent<any> = () => {
-    let getHelloWorldData = '';
+    const [value, setValue] = React.useState({ message: 'Init' });
+
     const getHelloWorld = () => {
-        authFetch('http://eskobe.local:8085/api/hello-world', {
+        authFetch('http://eskobe.esko:8085/api/hello-world', {
             method: 'GET',
             headers: {
                 Accept: 'application/json',
@@ -25,10 +26,11 @@ const ConfigurationComponent: FunctionComponent<any> = () => {
             },
         })
             .then((r) => r.json())
-            .then((data) => {
-                getHelloWorldData = data;
-                console.log(`getHelloWorldData`);
-                console.log(getHelloWorldData);
+            .then((data: any) => {
+                console.log(`data`);
+                console.log(data);
+
+                setValue(data);
             });
     };
     return (
@@ -40,7 +42,7 @@ const ConfigurationComponent: FunctionComponent<any> = () => {
                     Get hello world
                 </a>
             </div>
-            <p>Data: {getHelloWorldData}</p>
+            <p>Data: {value.message}</p>
         </div>
     );
 };
